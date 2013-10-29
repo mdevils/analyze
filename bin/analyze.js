@@ -5,18 +5,20 @@ var PlantUml = require('../lib/puml');
 
 program.command('puml')
     .description('build PlantUML')
+    .option('--scope <dir>', 'process directory')
     .action(function() {
         var builder = new Builder();
-        builder.buildProject(process.cwd()).then(function (project) {
+        builder.buildProject(process.cwd(), args.scope).then(function (project) {
             var plantUml = new PlantUml();
             console.log(plantUml.exportToPlantUml(project));
         }).done();
     });
 
 program.command('validate')
-    .action(function() {
+    .option('--scope <dir>', 'process directory')
+    .action(function(args) {
         var builder = new Builder();
-        builder.buildProject(process.cwd()).then(function () {
+        builder.buildProject(process.cwd(), args.scope).then(function () {
             builder.getErrorLog().report();
         }).done();
     });
