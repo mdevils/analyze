@@ -1,0 +1,18 @@
+{
+    "author": "Marat Dulin",
+    "name": "analyze",
+    "version": "0.0.3",
+    "engines": {
+        "node": "0.10"
+    },
+    "dependencies": {
+        "inherit": "2.1.0",
+        "esprima": "1.0.4",
+        "vow": "0.3.10",
+        "vow-fs": "0.2.3",
+        "commander": "2.0.0"
+    },
+    "bin" : {
+        "analyze" : "./bin/analyze.js"
+    }
+}
