@@ -13,4 +13,12 @@ program.command('puml')
         }).done();
     });
 
+program.command('validate')
+    .action(function() {
+        var builder = new Builder();
+        builder.buildProject(process.cwd()).then(function () {
+            builder.getErrorLog().report();
+        }).done();
+    });
+
 program.parse(process.argv);
